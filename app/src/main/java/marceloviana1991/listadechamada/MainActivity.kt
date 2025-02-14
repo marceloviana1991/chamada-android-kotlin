@@ -26,11 +26,7 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = biding.recyclerview
         recyclerView.adapter = MainAdapter(
             this,
-            listOf(
-                Pessoa("Marcelo", true),
-                Pessoa("Tiago"),
-                Pessoa("Lucas")
-            )
+            listOf("Marcelo", "Tiago", "Lucas")
         )
     }
 }

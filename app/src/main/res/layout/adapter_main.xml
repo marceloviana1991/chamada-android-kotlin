@@ -9,7 +9,7 @@
         android:id="@+id/textViewNome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Marcelo Viana de Souza"
+        android:text="Nome"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/switchPresenca"
