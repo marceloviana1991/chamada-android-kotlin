@@ -22,15 +22,15 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         val recyclerView = biding.recyclerview
         recyclerView.adapter = MainAdapter(
             this,
             listOf(
-                Pessoa("Marcelo", 12),
+                Pessoa("Marcelo", true),
                 Pessoa("Tiago"),
-                Pessoa("Lucas", 5)
+                Pessoa("Lucas")
             )
         )
-
     }
 }

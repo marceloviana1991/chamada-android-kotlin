@@ -16,7 +16,7 @@ class MainAdapter(
     ): RecyclerView.ViewHolder(binding.root) {
         fun vincula(pessoa: Pessoa) {
             binding.textViewNome.text = pessoa.nome
-            binding.textViewFaltas.text = "Faltas: ${pessoa.faltas}"
+            binding.switchPresenca.isChecked = pessoa.presenca
         }
     }
 
