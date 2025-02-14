@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewNome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:shadowColor="#8BC34A"
+        android:text="Marcelo Viana de Souza"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/switchPresenca"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewFaltas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Faltas: 0"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNome"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Switch
+        android:id="@+id/switchPresenca"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="Presente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:theme="@style/SwitchTheme"
+        android:checked="false"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
