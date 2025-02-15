@@ -14,6 +14,7 @@ class MainAdapter(
 ): RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     private val nomes = nomes.toMutableList()
+    private val presencas = mutableListOf<String>()
 
     inner class ViewHolder(
         private val binding: AdapterMainBinding
@@ -21,6 +22,13 @@ class MainAdapter(
         init {
             itemView.setOnClickListener {
                 quandoClicaNoItemListener(binding.textViewNome.text.toString())
+            }
+            binding.switchPresenca.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    presencas.add(binding.textViewNome.text.toString())
+                } else {
+                    presencas.remove(binding.textViewNome.text.toString())
+                }
             }
         }
         fun vincula(nome: String) {
@@ -46,6 +54,10 @@ class MainAdapter(
         this.nomes.clear()
         this.nomes.addAll(nomes)
         notifyDataSetChanged()
+    }
+
+    fun finaliza(): List<String> {
+        return presencas
     }
 
 }
