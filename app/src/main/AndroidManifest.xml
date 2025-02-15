@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ListaDeChamada"
         tools:targetApi="31">
         <activity
+            android:name=".ChamadaActivity"
+            android:exported="false" />
+        <activity
             android:name=".ExcluirActivity"
             android:exported="false" />
         <activity

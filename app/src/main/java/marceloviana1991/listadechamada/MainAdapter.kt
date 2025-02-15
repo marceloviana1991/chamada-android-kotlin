@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import marceloviana1991.listadechamada.databinding.AdapterMainBinding
+import kotlin.collections.ArrayList
 
 class MainAdapter(
     private val context: Context,
@@ -14,13 +15,13 @@ class MainAdapter(
 ): RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     private val nomes = nomes.toMutableList()
-    private val presencas = mutableListOf<String>()
+    private val presencas = ArrayList<String>()
 
     inner class ViewHolder(
         private val binding: AdapterMainBinding
     ): RecyclerView.ViewHolder(binding.root) {
         init {
-            itemView.setOnClickListener {
+            binding.textViewNome.setOnClickListener {
                 quandoClicaNoItemListener(binding.textViewNome.text.toString())
             }
             binding.switchPresenca.setOnCheckedChangeListener { _, isChecked ->
@@ -56,7 +57,7 @@ class MainAdapter(
         notifyDataSetChanged()
     }
 
-    fun finaliza(): List<String> {
+    fun finaliza(): ArrayList<String> {
         return presencas
     }
 
