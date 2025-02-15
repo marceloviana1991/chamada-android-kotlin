@@ -1,5 +1,6 @@
 package marceloviana1991.listadechamada
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,8 +9,10 @@ import marceloviana1991.listadechamada.databinding.AdapterMainBinding
 
 class MainAdapter(
     private val context: Context,
-    private val nomes: List<String>
+    nomes: List<String>
 ): RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+
+    private val nomes = nomes.toMutableList()
 
     class ViewHolder(
         private val binding: AdapterMainBinding
@@ -31,6 +34,13 @@ class MainAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val nome = nomes[position]
         holder.vincula(nome)
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun atualiza(nomes: List<String>) {
+        this.nomes.clear()
+        this.nomes.addAll(nomes)
+        notifyDataSetChanged()
     }
 
 }

@@ -1,20 +1,17 @@
 package marceloviana1991.listadechamada
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import marceloviana1991.listadechamada.databinding.ActivityMainBinding
+import marceloviana1991.listadechamada.databinding.ActivityCadastroBinding
 
-class MainActivity : AppCompatActivity() {
+class CadastroActivity : AppCompatActivity() {
 
     private val biding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
+        ActivityCadastroBinding.inflate(layoutInflater)
     }
-
-    private val adapter = MainAdapter(this, NomesDao.buscarTodos())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,19 +23,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val recyclerView = biding.recyclerview
-        recyclerView.adapter = adapter
-
-        val floatingActionButton = biding.floatingActionButton
-        floatingActionButton.setOnClickListener {
-            val intent = Intent(this, CadastroActivity::class.java)
-            startActivity(intent)
+        val button = biding.button
+        button.setOnClickListener {
+            NomesDao.adicionar(biding.editText.text.toString())
+            finish()
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        adapter.atualiza(NomesDao.buscarTodos())
 
     }
 }
