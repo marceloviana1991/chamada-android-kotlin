@@ -29,6 +29,16 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = biding.recyclerview
         recyclerView.adapter = adapter
 
+        adapter.quandoClicaNoItemListener = {
+            val intent = Intent(
+                this,
+                ExcluirActivity::class.java
+            ).apply {
+                putExtra("NOME", it)
+            }
+            startActivity(intent)
+        }
+
         val floatingActionButton = biding.floatingActionButton
         floatingActionButton.setOnClickListener {
             val intent = Intent(this, CadastroActivity::class.java)

@@ -12,5 +12,9 @@ class NomesDao {
         fun buscarTodos(): List<String> {
             return nomes
         }
+
+        fun excluir(nome: String?) {
+            nomes.remove(nome)
+        }
     }
 }
