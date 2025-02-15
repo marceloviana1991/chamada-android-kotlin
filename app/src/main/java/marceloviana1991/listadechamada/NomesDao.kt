@@ -10,7 +10,7 @@ class NomesDao {
         }
 
         fun buscarTodos(): List<String> {
-            return nomes
+            return nomes.sorted()
         }
 
         fun excluir(nome: String?) {
