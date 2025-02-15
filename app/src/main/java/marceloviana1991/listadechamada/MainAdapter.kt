@@ -2,7 +2,6 @@ package marceloviana1991.listadechamada
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +10,7 @@ import marceloviana1991.listadechamada.databinding.AdapterMainBinding
 class MainAdapter(
     private val context: Context,
     nomes: List<String>,
-    var quandoClicaNoItemListener: (nome: String) -> Unit = {}
+    var quandoClicaNoItemListener: (ativo: String) -> Unit = {},
 ): RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     private val nomes = nomes.toMutableList()
@@ -19,19 +18,12 @@ class MainAdapter(
     inner class ViewHolder(
         private val binding: AdapterMainBinding
     ): RecyclerView.ViewHolder(binding.root) {
-
-        private lateinit var nome: String
-
         init {
             itemView.setOnClickListener {
-                if(::nome.isInitialized) {
-                    quandoClicaNoItemListener(nome)
-                }
+                quandoClicaNoItemListener(binding.textViewNome.text.toString())
             }
         }
-
         fun vincula(nome: String) {
-            this.nome = nome
             binding.textViewNome.text = nome
         }
     }
