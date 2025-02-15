@@ -58,7 +58,13 @@ class MainAdapter(
     }
 
     fun finaliza(): ArrayList<String> {
-        return presencas
+        val faltas = ArrayList<String>()
+        nomes.forEach {
+            if (!presencas.contains(it)) {
+                faltas.add(it)
+             }
+        }
+        return faltas
     }
 
 }
