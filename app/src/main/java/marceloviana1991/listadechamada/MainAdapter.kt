@@ -34,6 +34,7 @@ class MainAdapter(
         }
         fun vincula(nome: String) {
             binding.textViewNome.text = nome
+            binding.switchPresenca.isChecked = false
         }
     }
 
