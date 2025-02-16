@@ -1,1 +1,1 @@
-![gravacao-de-tela](gravacao-de-tela.mp4)
+![gravacao-de-tela](gravacao-de-tela.gif)
