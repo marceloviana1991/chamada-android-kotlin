@@ -25,9 +25,11 @@ class CadastroActivity : AppCompatActivity() {
 
         val button = biding.button
         button.setOnClickListener {
-            NomesDao.adicionar(biding.editText.text.toString())
-            finish()
+            val editText = biding.editText.text.toString()
+            if (editText.isNotBlank()) {
+                NomesDao.adicionar(editText.trim())
+                finish()
+            }
         }
-
     }
 }
