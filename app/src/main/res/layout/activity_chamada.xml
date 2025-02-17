@@ -27,7 +27,7 @@
 
 
             <EditText
-                android:id="@+id/editTextText"
+                android:id="@+id/editText"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:hint="Nome do responsável"
