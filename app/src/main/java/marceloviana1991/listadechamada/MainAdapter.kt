@@ -21,8 +21,9 @@ class MainAdapter(
         private val binding: AdapterMainBinding
     ): RecyclerView.ViewHolder(binding.root) {
         init {
-            binding.textViewNome.setOnClickListener {
+            binding.textViewNome.setOnLongClickListener {
                 quandoClicaNoItemListener(binding.textViewNome.text.toString())
+                true
             }
             binding.switchPresenca.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
