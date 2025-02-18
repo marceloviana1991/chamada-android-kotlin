@@ -2,6 +2,7 @@ package marceloviana1991.listadechamada
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -29,8 +30,17 @@ class ExcluirActivity : AppCompatActivity() {
 
         val button = biding.button
         button.setOnClickListener {
-            NomesDao.excluir(nome)
-            finish()
+            AlertDialog.Builder(this)
+                .setTitle("Botão excluir")
+                .setMessage("Deseja realmente excluir \"$nome\"?")
+                .setPositiveButton("CONFIRMAR" ) { _, _ ->
+                    NomesDao.excluir(nome)
+                    finish()
+                }
+                .setNegativeButton("CANCELAR") { _, _ ->
+
+                }
+                .show()
         }
     }
 }
