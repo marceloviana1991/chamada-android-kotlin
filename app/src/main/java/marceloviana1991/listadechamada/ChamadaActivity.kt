@@ -45,16 +45,20 @@ class ChamadaActivity : AppCompatActivity() {
             )
         }
 
+        val codigos = mutableListOf(
+            "abcd"
+        )
+
         val button = biding.Button
         button.setOnClickListener {
             val editText = biding.editText.text
-            if(editText.isNotBlank()) {
+            if(codigos.contains(editText.toString())) {
                 Toast.makeText(this, "Chamada salva com sucesso!", Toast.LENGTH_SHORT)
                     .show()
                 finish()
             } else {
                 Toast.makeText(
-                    this, "Insira o nome do responsável!", Toast.LENGTH_SHORT
+                    this, "Código inválido!", Toast.LENGTH_SHORT
                 ).show()
             }
         }

@@ -30,7 +30,7 @@
                 android:id="@+id/editText"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Nome do responsável"
+                android:hint="Insira o código do usuário"
                 android:layout_margin="16dp"
                 android:inputType="text" />
 
