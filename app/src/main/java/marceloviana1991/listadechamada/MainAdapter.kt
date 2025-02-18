@@ -21,7 +21,7 @@ class MainAdapter(
         private val binding: AdapterMainBinding
     ): RecyclerView.ViewHolder(binding.root) {
         init {
-            binding.textViewNome.setOnLongClickListener {
+            binding.root.setOnLongClickListener {
                 quandoClicaNoItemListener(binding.textViewNome.text.toString())
                 true
             }
