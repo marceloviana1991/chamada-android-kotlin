@@ -4,9 +4,11 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import marceloviana1991.listadechamada.databinding.AdapterMainBinding
 import kotlin.collections.ArrayList
+import kotlin.math.truncate
 
 class MainAdapter(
     private val context: Context,
@@ -22,7 +24,13 @@ class MainAdapter(
     ): RecyclerView.ViewHolder(binding.root) {
         init {
             binding.root.setOnLongClickListener {
-                quandoClicaNoItemListener(binding.textViewNome.text.toString())
+                    PopupMenu(context, itemView).apply {
+                        menuInflater.inflate(R.menu.menu_excluir, menu)
+                        setOnMenuItemClickListener {
+                            quandoClicaNoItemListener(binding.textViewNome.text.toString())
+                            true
+                        }
+                    }.show()
                 true
             }
             binding.switchPresenca.setOnCheckedChangeListener { _, isChecked ->
