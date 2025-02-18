@@ -1,6 +1,7 @@
 package marceloviana1991.listadechamada
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -35,6 +36,8 @@ class ExcluirActivity : AppCompatActivity() {
                 .setMessage("Deseja realmente excluir \"$nome\"?")
                 .setPositiveButton("CONFIRMAR" ) { _, _ ->
                     NomesDao.excluir(nome)
+                    Toast.makeText(this, "Cadastro excluido com sucesso!", Toast.LENGTH_SHORT)
+                        .show()
                     finish()
                 }
                 .setNegativeButton("CANCELAR") { _, _ ->

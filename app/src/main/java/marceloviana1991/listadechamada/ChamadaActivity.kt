@@ -49,7 +49,8 @@ class ChamadaActivity : AppCompatActivity() {
         button.setOnClickListener {
             val editText = biding.editText.text
             if(editText.isNotBlank()) {
-                Toast.makeText(this, "Chamada salva com sucesso!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Chamada salva com sucesso!", Toast.LENGTH_SHORT)
+                    .show()
                 finish()
             } else {
                 Toast.makeText(

@@ -29,10 +29,12 @@ class CadastroActivity : AppCompatActivity() {
             val editText = biding.editText.text.toString()
             if (editText.isNotBlank()) {
                 NomesDao.adicionar(editText.trim())
+                Toast.makeText(this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT)
+                    .show()
                 finish()
             } else {
                 Toast.makeText(
-                    this, "Insira o nome que deseja adicionar!", Toast.LENGTH_SHORT
+                    this, "Insira o nome que deseja cadastrar!", Toast.LENGTH_SHORT
                 ).show()
             }
         }
