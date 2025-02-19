@@ -40,9 +40,11 @@ class MainAdapter(
                 }
             }
         }
-        fun vincula(nome: String) {
+        fun vincula(nome: String, posicao: Int) {
             binding.textViewNome.text = nome
             binding.switchPresenca.isChecked = false
+            val posicao = posicao + 1
+            binding.textViewNumero.text = "$posicao - "
         }
     }
 
@@ -56,7 +58,7 @@ class MainAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val nome = nomes[position]
-        holder.vincula(nome)
+        holder.vincula(nome, position)
     }
 
     @SuppressLint("NotifyDataSetChanged")
