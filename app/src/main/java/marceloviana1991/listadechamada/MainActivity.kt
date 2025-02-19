@@ -2,7 +2,9 @@ package marceloviana1991.listadechamada
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -30,13 +32,19 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         adapter.quandoClicaNoItemListener = {
-            val intent = Intent(
-                this,
-                ExcluirActivity::class.java
-            ).apply {
-                putExtra("NOME", it)
-            }
-            startActivity(intent)
+           AlertDialog.Builder(this)
+                .setTitle("Botão excluir")
+                .setMessage("Deseja realmente excluir \"$it\"?")
+                .setPositiveButton("CONFIRMAR" ) { _, _ ->
+                    NomesDao.excluir(it)
+                    Toast.makeText(this, "Cadastro excluido com sucesso!", Toast.LENGTH_SHORT)
+                        .show()
+                    adapter.atualiza(NomesDao.buscarTodos())
+                }
+                .setNegativeButton("CANCELAR") { _, _ ->
+
+                }
+                .show()
         }
 
         val floatingActionButton = biding.floatingActionButton

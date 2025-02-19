@@ -8,7 +8,6 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import marceloviana1991.listadechamada.databinding.AdapterMainBinding
 import kotlin.collections.ArrayList
-import kotlin.math.truncate
 
 class MainAdapter(
     private val context: Context,
