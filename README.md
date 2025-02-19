@@ -1,6 +1,6 @@
 <h1>Lista de chamada</h1>
 
-<p>Aplicação android kotlin que implementa sistema de lista registro de faltas</p>
+<h3>Aplicação android kotlin que implementa sistema de lista registro de faltas</h3>
 
 <h2>Realização de registro de faltas</h2>
 <p>A aplicação consiste em um sistema que realiza o registro de faltas em uma lista de presença, autenticando o usuário que realizou a chamada e capturando a data e hora.</p>
