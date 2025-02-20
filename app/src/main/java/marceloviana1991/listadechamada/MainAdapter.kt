@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import marceloviana1991.listadechamada.databinding.AdapterMainBinding
-import kotlin.collections.ArrayList
 
 class MainAdapter(
     private val context: Context,
@@ -16,7 +15,7 @@ class MainAdapter(
 ): RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     private val nomes = nomes.toMutableList()
-    private val presencas = ArrayList<String>()
+    private val ausentes = nomes.toMutableList()
 
     inner class ViewHolder(
         private val binding: AdapterMainBinding
@@ -34,9 +33,9 @@ class MainAdapter(
             }
             binding.switchPresenca.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
-                    presencas.add(binding.textViewNome.text.toString())
+                    ausentes.remove(binding.textViewNome.text.toString())
                 } else {
-                    presencas.remove(binding.textViewNome.text.toString())
+                    ausentes.add(binding.textViewNome.text.toString())
                 }
             }
         }
@@ -65,17 +64,15 @@ class MainAdapter(
     fun atualiza(nomes: List<String>) {
         this.nomes.clear()
         this.nomes.addAll(nomes)
+        this.ausentes.clear()
+        this.ausentes.addAll(nomes)
         notifyDataSetChanged()
     }
 
-    fun finaliza(): ArrayList<String> {
-        val faltas = ArrayList<String>()
-        nomes.forEach {
-            if (!presencas.contains(it)) {
-                faltas.add(it)
-             }
-        }
-        return faltas
+    @SuppressLint("NotifyDataSetChanged")
+    fun finaliza(): List<String> {
+        notifyDataSetChanged()
+        return ausentes
     }
 
 }

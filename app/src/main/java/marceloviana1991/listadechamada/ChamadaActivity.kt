@@ -2,6 +2,7 @@ package marceloviana1991.listadechamada
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
@@ -53,6 +54,8 @@ class ChamadaActivity : AppCompatActivity() {
         button.setOnClickListener {
             val editText = biding.editText.text
             if(codigos.contains(editText.toString())) {
+                ChamadaDao.adicionar(Chamada(agora, editText.toString(), ArrayList(chamada!!)))
+                Log.i("aaaaaaaaaaaaaaaa", ChamadaDao.buscaTodas().toString())
                 Toast.makeText(this, "Chamada salva com sucesso!", Toast.LENGTH_SHORT)
                     .show()
                 finish()

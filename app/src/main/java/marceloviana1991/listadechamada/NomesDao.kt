@@ -3,7 +3,7 @@ package marceloviana1991.listadechamada
 class NomesDao {
 
     companion object {
-        private val nomes = mutableListOf<String>(
+        private val nomes = mutableListOf(
             "Allana Antonella Rosângela Rezende",
             "Victor Iago Francisco Rezende",
             "Letícia Silvana Silva",

@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                 this,
                 ChamadaActivity::class.java
             ).apply {
-                putStringArrayListExtra("CHAMADA", adapter.finaliza())
+                putStringArrayListExtra("CHAMADA", ArrayList(adapter.finaliza()))
             }
             startActivity(intent)
         }
