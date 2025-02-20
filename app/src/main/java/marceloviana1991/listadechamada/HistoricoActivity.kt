@@ -29,6 +29,8 @@ class HistoricoActivity : AppCompatActivity() {
             insets
         }
 
+        title = "Histórico de Chamadas"
+
         val historico = mutableListOf<String>()
         val formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")
 
